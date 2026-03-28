@@ -1,16 +1,18 @@
-# Fullstack test (Express + React)
+# Application (Express + React)
 
-Two-pane UI for selecting items out of a virtual list of 1,000,000 IDs with filtering, infinite scroll, DnD sorting, and server-side in-memory persistence.
+Двухпанельный интерфейс для выбора элементов из виртуального списка из 1 000 000 ID с фильтрацией, бесконечной подгрузкой, drag and drop сортировкой и серверным хранением состояния в памяти.
 
-## Features covered
-- **Left pane**: virtual list of IDs (1..1_000_000 + manually added IDs), filter by ID prefix, infinite scroll (20 per page), add new IDs.
-- **Right pane**: selected items, filter by ID prefix, infinite scroll (20 per page), drag&drop sorting (also when filtered).
-- **Persistence**: selection + order live on the server (in-memory for app lifetime). Search text is NOT persisted.
-- **Queues**:
-  - client-side **GET queue**: dedup + rate-limit/batching (<= 1 request/sec per unique query)
-  - client-side **MUTATION queue**: dedup + batched submit every 1 sec
-  - client-side **ADD queue**: dedup + batched submit every 10 sec
-  - server-side pending queues mirror the same timing (so refresh within the batching window still reflects your latest actions).
+## Реализованные возможности
+- **Левая панель**: виртуальный список ID (от 1 до 1_000_000 + ID, добавленные вручную), фильтрация по префиксу ID, бесконечная подгрузка по 20 элементов, добавление новых ID.
+- **Правая панель**: выбранные элементы, фильтрация по префиксу ID, бесконечная подгрузка по 20 элементов, сортировка через drag and drop, в том числе при активной фильтрации.
+- **Сохранение состояния**: выбранные элементы и их порядок хранятся на сервере в памяти на всё время работы приложения. Поисковый текст не сохраняется.
+- **Очереди**:
+  - клиентская **очередь GET-запросов**: дедупликация + ограничение частоты/батчинг, не более 1 запроса в секунду для каждого уникального запроса
+  - клиентская **очередь MUTATION-запросов**: дедупликация + пакетная отправка раз в 1 секунду
+  - клиентская **очередь ADD-запросов**: дедупликация + пакетная отправка раз в 10 секунд
+  - серверные очереди ожидания работают по той же логике и с теми же интервалами, поэтому даже при обновлении страницы в течение окна батчинга последние действия пользователя сохраняются
+
+
 
 ## Local run (dev)
 ### 1) Backend
