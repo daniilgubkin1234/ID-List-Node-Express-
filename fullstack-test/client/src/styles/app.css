@@ -1,0 +1,155 @@
+:root {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  color: #111;
+  background: #fafafa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header h1 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.meta {
+  font-size: 12px;
+  color: #555;
+  display: flex;
+  gap: 12px;
+}
+
+.panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px;
+  height: calc(100vh - 50px);
+}
+
+.pane {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  overflow: hidden;
+}
+
+.pane-header {
+  padding: 12px 12px 0 12px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.pane-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0;
+}
+
+.controls {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #bbb;
+}
+
+button {
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #eee;
+}
+
+.list {
+  overflow: auto;
+  padding: 6px 8px 10px 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin: 4px 0;
+  border: 1px solid #eee;
+  background: #fff;
+}
+
+.item.dragging {
+  opacity: 0.5;
+}
+
+.item-id {
+  font-variant-numeric: tabular-nums;
+  color: #222;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #e6e6e6;
+  background: #fbfbfb;
+  font-size: 12px;
+}
+
+.small {
+  font-size: 12px;
+  color: #666;
+}
+
+.sentinel {
+  padding: 10px;
+  text-align: center;
+  color: #777;
+  font-size: 12px;
+}
